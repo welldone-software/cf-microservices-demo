@@ -1,12 +1,13 @@
-const JOB_INTERVAL = process.env.JOB_INTERVAL || (1000 * 6);
-const MONGO_URL = process.env.MONGO_URL || 'localhost/cf-reactjs-jumpstart';
+const config = require('./config');
+const jobInterval = config.jobInterval;
+const mongoUrl = config.mongoUrl;
 
 const escapeRegexp = require('escape-regexp');
 const monk = require('monk');
 const debug = require('debug')('job:main');
 
 
-const db = monk(MONGO_URL);
+const db = monk(mongoUrl);
 const todos = db.get('todos');
 
 const prohibitedWords = require('./prohibitedWords.json');
@@ -19,7 +20,7 @@ const prohibitedWordsRegex = new RegExp(
 main();
 
 function main(){
-  const timerId = setInterval(job, JOB_INTERVAL);
+  const timerId = setInterval(job, jobInterval);
   job();
 }
 
