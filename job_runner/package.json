@@ -1,0 +1,23 @@
+{
+  "name": "job_runner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "escape-regexp": "0.0.1",
+    "mongodb": "^1.4.0",
+    "monk": "^1.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^1.0.7",
+    "mocha": "^2.4.5",
+    "nodemon": "^1.9.0"
+  }
+}

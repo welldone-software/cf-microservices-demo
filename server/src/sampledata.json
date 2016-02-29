@@ -1,0 +1,29 @@
+[
+  {
+    "_id": 1,
+    "name": "first list",
+    "todos": [{
+      "id": 1,
+      "text": "first todo",
+      "completed": false
+    }]
+  },
+  {
+    "_id": 2,
+    "name": "second list",
+    "todos": [{
+      "id": 2,
+      "text": "second todo",
+      "completed": false
+    }]
+  },
+  {
+    "_id": 3,
+    "name": "third list",
+    "todos": [{
+      "id": 3,
+      "text": "third todo",
+      "completed": false
+    }]
+  }
+]
