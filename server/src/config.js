@@ -1,4 +1,5 @@
 module.exports = {
+  mongoUrl: process.env.MONGO_URL || 'localhost/cf-reactjs-jumpstart',
   auth: {
     baseUrl: process.env.AUTH_BASE_URL || 'http://localhost:8000',
     appId: process.env.AUTH_APP_ID || 'c022e69daba448b9a84c8b83e1848184',
