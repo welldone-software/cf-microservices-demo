@@ -5,7 +5,7 @@ const static = require('koa-static');
 const cors = require('kcors');
 const path = require('path');
 const routes = require('./routes');
-const port = process.env.PORT || 9000;
+const port = require('./config').port;
 
 const app = koa();
 
