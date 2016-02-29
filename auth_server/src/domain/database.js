@@ -1,6 +1,6 @@
 const monk = require('monk');
 const coMonk = require('co-monk');
-const mongoUrl = process.env.MONGO_URL || 'localhost/cf-reactjs-jumpstart';
+const mongoUrl = require('../config').mongoUrl;
 const debug = require('debug')('auth:database');
 var co = require('co');
 
