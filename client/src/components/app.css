@@ -473,3 +473,9 @@ button[disabled] {
   background-image: none;
   border: 1px solid #ccc;
 }
+
+.codefresh-logo {
+  text-align: center;
+  margin: 30px;
+  width: 133px;
+}
