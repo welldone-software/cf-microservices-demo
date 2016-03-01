@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import _ from 'lodash';
 
-export const todos = (state = [], action) =>{
-  switch(action.type){
+function todos(state = [], action) {
+  switch (action.type) {
     case 'ADD_TODO':
     {
       return [
@@ -50,8 +50,8 @@ export const todos = (state = [], action) =>{
   }
 };
 
-export const visibilityFilter = (state = 'SHOW_ALL', action) =>{
-  switch(action.type){
+function visibilityFilter(state = 'SHOW_ALL', action) {
+  switch (action.type) {
     case 'SET_VISIBILITY_FILTER':
       return action.filter;
     default:
@@ -59,25 +59,25 @@ export const visibilityFilter = (state = 'SHOW_ALL', action) =>{
   }
 };
 
-export const text = (state = '', action) =>{
+function text(state = '', action) {
   return action.type === 'SET_TEXT' ?
     action.text :
     state;
 };
 
-const status = (state = {loading: false, error: null} , action) =>{
-  if(action.type.endsWith('_LOADING')){
+function status(state = {loading: false, error: null}, action) {
+  if (action.type.endsWith('_LOADING')) {
     return {loading: true, error: null};
   }
-  else if(action.type.endsWith('_FAILURE')){
+  else if (action.type.endsWith('_FAILURE')) {
     return {loading: false, error: action.error};
   }
-  else{
+  else {
     return state;
   }
 };
 
-const list = (state = {items: [], selected: -1, status: ''} , action) => {
+function list(state = {items: [], selected: -1, status: ''}, action) {
   switch (action.type) {
     case 'LOAD_MY_TODOS_LOADING':
       return {
@@ -103,7 +103,7 @@ const list = (state = {items: [], selected: -1, status: ''} , action) => {
 
       return {
         ...state,
-        items: state.items.concat([{_id, name }]),
+        items: state.items.concat([{_id, name}]),
         selected: state.items.length
       };
     default:
@@ -136,7 +136,7 @@ const list = (state = {items: [], selected: -1, status: ''} , action) => {
 //  }
 //};
 
-const config = (state = {}, action) => {
+function config(state = {}, action) {
   switch (action.type) {
     case 'LOGIN_LOADING':
       return {
@@ -159,7 +159,6 @@ const config = (state = {}, action) => {
       return state;
   }
 };
-
 
 
 const todoApp = combineReducers({
