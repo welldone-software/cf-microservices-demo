@@ -477,5 +477,8 @@ button[disabled] {
 .codefresh-logo {
   text-align: center;
   margin: 30px;
+}
+
+.codefresh-logo img {
   width: 133px;
 }
