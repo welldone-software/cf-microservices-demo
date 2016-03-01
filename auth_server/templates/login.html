@@ -1,91 +1,165 @@
 <html>
 <head>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
     <style>
-        body {
+        html, body {
             font-family: 'Open Sans';
-            font-size:14px;
-            color:#242424;
+            font-size: 14px;
+            color: #242424;
+            margin: 0;
+            padding: 0;
         }
 
-        body * {
-            margin:0;
+        form {
+            margin: 0;
+            padding: 0;
         }
 
-        .form {
-            border:1px solid #CCCCCC;
-            border-radius: 3px;
-            margin:  40px auto;
+        .login-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: auto;
+            bottom: auto;
+            transform: translate(-50%, -50%);
             width: 300px;
-            background: #DBDBDB;
+        }
+
+        .login-header {
+            background: #32434D;
+            text-align: center;
+            color: #fff;
+            line-height: 50px;
+        }
+
+        .login-header .fa {
+            position: absolute;
+            line-height: 50px;
+            left: 12px;
         }
 
         label {
-            width:100px;
-            display: inline-block;
-            text-align: left;
-        }
-
-        input {
-            border: 1px solid #242424;
-            height: 25px;
-            width: 170px;
-            border-radius: 4px;
-            font-size:12px;
-        }
-
-        input[type=submit] {
-            background: #f1c40f;
-            border:none;
-            color:#FFF;
+            font-weight: normal;
+            font-size: 12px;
+            padding: 2px 0 8px 0;
         }
 
         .form-control {
-            padding:10px ;
+            padding: 7px 9px 8px 9px;
+            font-size: 12px;
+            border-color: #ddd;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .well {
+            background-color: #fafafa;
+            border-color: #E5E5E5;
+            border-radius: 0px;
+            margin: 0;
+        }
+
+        .btn {
+            font-family: 'Open Sans', sans-serif;
+            display: inline-block;
+            padding: 7px 16px 8px 16px;
+            margin-bottom: 0;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            color: #333;
+            background-color: #fff;
+            border-color: #ccc;
+            border-radius: 0;
+            min-width: 100px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .social {
             text-align: center;
         }
 
-        .form-control:first-child {
-            padding:20px 10px 10px 10px;
-            text-align: center;
-        }
-
-        .form-control:last-child {
-            padding:10px 10px 20px 10px;
-            text-align: center;
-        }
-
-        .title > div {
-            border-bottom:1px solid #DBDBDB;
-            text-align: center;
-            font-size:16px;
-            background: #1abc9c;
+        .social .fa {
             line-height: 40px;
-            color:#FFF;
-            font-weight: lighter;
+            width: 16%;
+            text-align: center;
+            background: rgba(0,0,0,.3);
+            margin: 0 4px;
+            opacity: 0.3;
         }
 
+        .social .fa:before {
+            width: 40px;
+            font-size: 18px;
+            background-color: transparent;
+        }
+
+        .social .fa.fa-google {
+            background-color: #4285f4;
+            color: #fff;
+        }
+
+        .social .fa.fa-github {
+            background-color: #eee;
+            color: #050505;
+        }
+
+        .social .fa.fa-facebook {
+            background-color: #3b5998;
+            color: #fff;
+        }
+
+        .form-group .fa {
+            position: absolute;
+            right: 12px;
+            top: 42px;
+        }
+
+        .form-group.action {
+            text-align: right;
+            margin-bottom: 0;
+            padding-top: 12px;
+        }
 
     </style>
 </head>
 <body>
 <!--<a href="__githubUrl__"><img src="/images/GitHub-Mark-32px.png">Github</a>&nbsp;<a href="#">Facebook</a>&nbsp;<a href="#">Twitter</a>-->
 <!--<hr/>-->
-<div class="form">
-    <div class="title">
-        <div>Sign In</div>
-    </div>
-    <form method="get"  action="/__appId__/authenticate">
-        <div class="form-control">
-            <label>eMail</label>
-            <input type="email" name="email"/>
+
+
+<div class="login-wrapper">
+    <form method="get" action="/__appId__/authenticate">
+        <div class="login-header">
+            <i class="fa fa-2x fa-sign-in"></i>
+            <span>User Login</span>
         </div>
-        <div class="form-control">
-            <label>Password</label>
-            <input type="password"/>
-        </div>
-        <div class="form-control">
-            <input type="submit" value="Login">
+        <div class="well">
+            <div class="social">
+                <i class="fa fa-google"></i>
+                <i class="fa fa-github"></i>
+                <i class="fa fa-facebook"></i>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="email">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Password">
+                <i class="fa fa-key"></i>
+            </div>
+            <div class="form-group action">
+                <button type="submit" class="btn"><i class="icon-menu2"></i> Sign in</button>
+            </div>
         </div>
     </form>
 </div>
