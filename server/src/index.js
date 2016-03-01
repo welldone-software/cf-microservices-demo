@@ -12,7 +12,7 @@ const app = koa();
 app.use(cors());
 app.use(logger());
 app.use(routes());
-app.use(static(path.join(__dirname, '../client/dist')));
+app.use(static(path.join(__dirname, '../../client/dist')));
 app.use(compress());
 
 app.listen(port);
