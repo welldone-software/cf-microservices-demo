@@ -1,7 +1,7 @@
 const Router = require('koa-router');
 const parse = require('co-body');
-const todosSvc =  require('./todosSvc');
-const config = require('./config');
+const todosSvc =  require('../todosSvc');
+const config = require('../config');
 
 const router = new Router({
   prefix: '/api'
@@ -41,5 +41,6 @@ router
     yield todosSvc.remove(id);
     this.status = 200;
   });
+
 
 module.exports = router.routes.bind(router);
