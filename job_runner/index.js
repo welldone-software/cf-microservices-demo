@@ -15,7 +15,7 @@ const prohibitedWordsRegex = new RegExp(
   prohibitedWords.map(t => `\\b${escapeRegexp(t)}\\b`).join('|'),
   'ig'
 );
-var lastId = new Date().getTime();
+
 
 main();
 
@@ -34,18 +34,18 @@ function job(){
     todoLists.forEach(function(todoList){
       todoList.todos.forEach(function(todo){
 
-        if(todo.id > lastId && prohibitedWordsRegex.test(todo.text)){
-          lastId = todo.id;
-          suspicious.insert({
-            _id: (new Date()).getTime(),
-            listId: todoList._id,
-            listName: todoList.name,
-            todoId: todo.id,
-            todoText: todo.text,
-            foundOn: new Date()
-          });
+        if(prohibitedWordsRegex.test(todo.text)){
+          console.warn(`Prohibited words detected '${todo.text}' in list '${todoList.name}', todo id '${todo.id}'`);
+          suspicious.findAndModify(
+            { todoId : todo.id},
+            { listId: todoList._id,
+              listName: todoList.name,
+              todoId: todo.id,
+              todoText: todo.text
+            },
+            { upsert: true }
+          );
 
-          console.warn(`Prohibited words detected '${todo.text}' in list '${todoList._id}', todo id '${todo.id}'`);
         }
       });
     });
